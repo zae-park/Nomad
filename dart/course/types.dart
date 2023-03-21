@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 class arr {
   /* Aboud 'List', 'string interpolation' and 'Collection' */
   List<int> intergers = [0, 1, 2, 3, 4];
