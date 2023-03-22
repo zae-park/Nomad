@@ -40,11 +40,11 @@
 - [x] Constructor & Named constructor
 - [x] Cascade notation
 - [x] Enum
-- [ ] Abstract method & inheritance (with `Mixins`!)
+- [x] Abstract method & inheritance (with `Mixins`!)
 
 </details><br>
 
 ---
-## App for GAME OF LIFE `In future`
+## App for GAME OF LIFE `In future` with Flutter.
 
 ![Gospers_glider_gun](assets/Gospers_glider_gun.gif)
