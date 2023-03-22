@@ -34,7 +34,7 @@
 </details><br>
 
 <details open>
-<summary>classes</summary>
+<summary>Classes</summary>
 
 - [x] Basics
 - [x] Constructor & Named constructor
