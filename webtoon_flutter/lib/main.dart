@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'bridge.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -40,6 +42,17 @@ class MyApp extends StatelessWidget {
                 )
               ],
             ),
+            const SizedBox(
+              height: 100,
+            ),
+            Text(
+              '3 + 4 = ${nativeAdd(3, 4)}',
+              style: TextStyle(color: Colors.yellow.shade100, fontSize: 30),
+            ),
+            Text(
+              'using native dynamic library',
+              style: TextStyle(color: Colors.yellow.shade50, fontSize: 20),
+            )
           ],
         ),
       ),
