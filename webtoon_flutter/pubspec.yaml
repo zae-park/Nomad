@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  ffigen: ^4.1.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -88,3 +90,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+ffigen:
+  name: 'MathUtilsFFI'
+  description: 'Written for the FFI article'
+  output: 'lib/ffi/generated_bindings.dart'
+  headers:
+  entry-points:
+    - 'ios/Runner/native_add.cpp'

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'bridge.dart';
+
 void main() {
+  print(nativeAdd(3, 4));
   runApp(const MyApp());
 }
 
