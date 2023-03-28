@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.4.1)  # for example
 
+project(foo)
+
 add_library( native_add
 
              # Sets the library as a shared library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             ../ios/Runner/native_add.cpp )
+             ../../ios/Runner/native_add.cpp )
