@@ -104,23 +104,26 @@ class MyApp extends StatelessWidget {
               const SizedBox(height: 10),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  crd.MyCard(
-                    amount: '100',
-                    moneyName: 'Won',
-                    moneyAbb: 'W',
-                    bgColor: Color(0xFF1F2123),
-                    logo: Icons.money_rounded,
-                  ),
-                  crd.MyCard(
+                children: [
+                  const crd.MyCard(
                     amount: '123',
                     moneyName: 'Dollors',
                     moneyAbb: '\$',
                     bgColor: Color.fromARGB(255, 63, 70, 77),
                     logo: Icons.euro,
                   ),
+                  Transform.translate(
+                    offset: const Offset(0, -40),
+                    child: const crd.MyCard(
+                      amount: '100',
+                      moneyName: 'Won',
+                      moneyAbb: 'W',
+                      bgColor: Color(0xFF1F2123),
+                      logo: Icons.money_rounded,
+                    ),
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
