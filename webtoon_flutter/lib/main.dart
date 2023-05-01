@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
-
-import 'bridge.dart';
+import 'screens/home_page.dart';
+import 'widgets/button.dart' as btn;
+import 'widgets/card.dart' as crd;
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Toon());
+}
+
+class Toon extends StatelessWidget {
+  const Toon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -15,45 +27,117 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color(0xFF181818),
-        body: Column(
-          children: [
-            const SizedBox(height: 80),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: const [
-                    Text(
-                      'Hey, zae-park',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.w600),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 80),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Hey, zae-park',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 40,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Text(
+                        'Welcome to dev',
+                        style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 80,
+              ),
+              const Text(
+                'Total balance',
+                style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w400),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                '\$ 5 194 482',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 36,
+                    fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  btn.Rounded(
+                    text: 'Transfer',
+                    textColor: Colors.black87,
+                    bgColor: Colors.amber,
+                  ),
+                  btn.Rounded(
+                    text: 'Request',
+                    textColor: Colors.white54,
+                    bgColor: Color(0xFF1F2123),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'Wallets',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    'View all',
+                    style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+              const SizedBox(height: 10),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const crd.MyCard(
+                    amount: '123',
+                    moneyName: 'Dollors',
+                    moneyAbb: '\$',
+                    bgColor: Color.fromARGB(255, 63, 70, 77),
+                    logo: Icons.euro,
+                  ),
+                  Transform.translate(
+                    offset: const Offset(0, -40),
+                    child: const crd.MyCard(
+                      amount: '100',
+                      moneyName: 'Won',
+                      moneyAbb: 'W',
+                      bgColor: Color(0xFF1F2123),
+                      logo: Icons.money_rounded,
                     ),
-                    Text(
-                      'Welcome to dev',
-                      style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            Text(
-              '3 + 4 = ${nativeAdd(3, 4)}',
-              style: TextStyle(color: Colors.yellow.shade100, fontSize: 30),
-            ),
-            Text(
-              'using native dynamic library',
-              style: TextStyle(color: Colors.yellow.shade50, fontSize: 20),
-            )
-          ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
