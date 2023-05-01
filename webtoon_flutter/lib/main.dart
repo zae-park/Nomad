@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'screens/home_page.dart';
 import 'widgets/button.dart' as btn;
 import 'widgets/card.dart' as crd;
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Toon());
+}
+
+class Toon extends StatelessWidget {
+  const Toon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: HomePage(),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
