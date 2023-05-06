@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:webtoon_flutter/models/webtoon_model.dart';
 import 'package:webtoon_flutter/service.dart';
 
+import 'package:webtoon_flutter/widgets/card.dart';
+
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
@@ -24,12 +26,18 @@ class HomePage extends StatelessWidget {
         future: webtoons,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ListView.builder(
-              scrollDirection: Axis.vertical,
+            return ListView.separated(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.all(10),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return Text(snapshot.data![index].title);
+                return ToonCard(
+                  toonName: snapshot.data![index].title,
+                  thumbURL: snapshot.data![index].thumb,
+                  toonID: snapshot.data![index].id,
+                );
               },
+              separatorBuilder: (context, index) => const SizedBox(width: 10),
             );
           } else {
             return const CircularProgressIndicator();

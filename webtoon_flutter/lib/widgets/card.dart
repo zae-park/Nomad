@@ -83,3 +83,77 @@ class MyCard extends StatelessWidget {
     );
   }
 }
+
+class ToonCard extends StatelessWidget {
+  // final Color bgColor;
+  final String toonName;
+  final String thumbURL;
+  final String toonID;
+  // final IconData logo;
+
+  const ToonCard({
+    super.key,
+    required this.toonName,
+    required this.thumbURL,
+    required this.toonID,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(25)),
+        color: Colors.white,
+        shape: BoxShape.rectangle,
+      ),
+      clipBehavior: Clip.hardEdge,
+      child: Padding(
+        padding: const EdgeInsets.all(30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 250,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Colors.black.withOpacity(0.2),
+                          width: 2.0,
+                          strokeAlign: BorderSide.strokeAlignOutside),
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 10,
+                          offset: const Offset(10, 10),
+                          color: Colors.black.withOpacity(0.6),
+                        ),
+                      ]),
+                  child: Image.network(
+                    thumbURL,
+                    headers: const {
+                      "User-Agent":
+                          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  toonName,
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
